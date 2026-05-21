@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/zahir-bilal-itk/python-server-helm-argo-cd.git
+    targetRevision: HEAD
+    path: simple_server
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
